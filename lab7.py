@@ -1,33 +1,46 @@
-# academic year: 201920
-# author: B. Schoen-Phelan
-# date: 07-11-2019
-# purpose: Lab 7 - Word Games
-
 import string
+
 
 class WordGames:
     def __init__(self):
-        self.mywords = input("Please enter a word or sentence: ")
+        self.mywords = input("Please enter a word or sentence")
         self.word_play()
 
     def word_play(self):
-        self.mywords= self.mywords.split()
-        temp = self.mywords[0]
-        self.mywords[0] = self.mywords[(len(self.mywords)-1)]
-        self.mywords[(len(self.mywords)-1)] = temp
-        for i in range(len(self.mywords)):
-            print(self.mywords[i], end=" ")
+        print("User input was: " + self.mywords)
+
 
 class WordDupli(WordGames):
-    super.__init__()
     def word_play(self):
-        self.mywords = mywords
-        print(self.mywords, " ", self.mywords)
-        print("hello")
+        print("User input doubled: ")
+        dupli = self.mywords + ' ' + self.mywords
+        print(dupli)
 
 
 class WordScramble(WordGames):
-    pass
+    def __init__(self):
+        print("word scrambler")
+        super().__init__()
+        # WordGames.__init__(self)
 
-#wg = WordGames()
-wd = WordDupli()
+    def word_play(self):
+        list_of_words = self.mywords.split()
+        scrambled = ''
+        for word in list_of_words:
+            if len(word) > 4:
+                if any(p in word for p in string.punctuation):
+                    scrambled += word[0] + word[-2] + word[2:-2] + word[1] + word[-1] + ' '
+                else:  # no punctuation
+                    scrambled += word[0] + word[-1] + word[2:-1] + word[1] + ' '
+            else:
+                print("too few characters in a word")
+        print(scrambled)
+
+
+# wg = WordGames()
+# wd = WordDupli()
+ws = WordScramble()
+
+# word_play(word, amount)
+# word_play(* args)    --> * means 0 or many 
+# if args:      --> check arguments
