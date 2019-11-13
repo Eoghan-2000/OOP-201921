@@ -10,7 +10,7 @@ class WordGames:
         print("User input was: " + self.mywords)
 
 
-class WordDupli(WordGames):
+class WordDupli(WordGames):\
     def word_play(self):
         print("User input doubled: ")
         dupli = self.mywords + ' ' + self.mywords
