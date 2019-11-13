@@ -1,6 +1,7 @@
 # course: Object-oriented programming, year 2, semester 1
 # academic year: 201920
 # author: B. Schoen-Phelan
+<<<<<<< HEAD
 # date: 18-10-2019
 # purpose: Lab 5 - GUI and card game using queue
 
@@ -8,11 +9,23 @@ from tkinter import *
 from queue import Queue
 from random import shuffle
 
+=======
+# date: 17-10-2019
+# purpose: Lab 5 - GUI and card game using queue
+
+from tkinter import *
+# to use the queue FIFO
+from queue import Queue
+
+# to use the shuffle for shuffling the cards
+from random import shuffle
+>>>>>>> upstream/master
 
 class CardGame(Frame):
 
     # initialises the application
     def __init__(self, master=None):
+<<<<<<< HEAD
         # set up game logic here:
         # shuffle the cards before first use
         # variable for holding the score
@@ -22,6 +35,15 @@ class CardGame(Frame):
 
         Frame.__init__(self, master)
         self.master = master
+=======
+        Frame.__init__(self, master)
+        self.master = master
+        # set up game logic here:
+        # shuffle the cards before first use
+        # variable for holding the score
+        self.player_score=0
+
+>>>>>>> upstream/master
         self.init_window()
 
     # used by __init__
@@ -41,6 +63,7 @@ class CardGame(Frame):
 
         # add elements into the frames
         self.open_card = Button(cards_frame)
+<<<<<<< HEAD
 
         # set the card to the current card
         current_card = self.the_cards.get()
@@ -113,12 +136,36 @@ class CardGame(Frame):
         # while not cards.empty():
         #     print(cards.get())
         return cards
+=======
+        the_card = PhotoImage(file='cards/queen_hearts.gif')
+        self.open_card.config(image=the_card)
+        self.open_card.grid(row=0, column=0, padx=2, pady=2)
+        self.open_card.photo = the_card
+
+        closed_deck = Button(cards_frame)
+        closed_card = PhotoImage(file='cards/closed_deck.gif')
+        closed_deck.config(image=closed_card)
+        closed_deck.grid(row=0, column=1, padx=2, pady=2)
+        closed_deck.photo = closed_card
+
+        done_button = Button(button_frame, text="I'm done!")
+        done_button.grid(row=0, column=0, pady=12)
+        new_game_button = Button(button_frame, text="New Game")
+        new_game_button.grid(row=1, column=0, pady=13)
+        exit_button = Button(button_frame, text="Exit", command=self.game_exit)
+        exit_button.grid(row=2, column=0, pady=13)
+
+        self.score_label = Label(score_frame, text="Your score: "+ str(self.player_score), justify=LEFT)
+        self.score_label.pack()
+
+>>>>>>> upstream/master
 
     # called by the exit_button Button
     # ends the GUI application
     def game_exit(self):
         exit()
 
+<<<<<<< HEAD
     # called when clicking on the closed deck
     # picks a new card from the card FIFO
     # updates the display
@@ -169,10 +216,16 @@ class CardGame(Frame):
         self.the_cards = self.load_cards()
         self.pick_card()
 
+=======
+>>>>>>> upstream/master
 
 # object creation here:
 root = Tk()
 root.geometry("300x200")
 root.title("Card Game")
 app = CardGame(root)
+<<<<<<< HEAD
 root.mainloop()
+=======
+root.mainloop()
+>>>>>>> upstream/master
