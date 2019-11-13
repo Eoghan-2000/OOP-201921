@@ -23,6 +23,7 @@ class WordDupli(WordGames):
     def word_play(self):
         self.mywords = mywords
         print(self.mywords, " ", self.mywords)
+        print("hello")
 
 
 class WordScramble(WordGames):
