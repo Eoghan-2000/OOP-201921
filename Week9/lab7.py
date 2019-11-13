@@ -1,5 +1,7 @@
 import string
 
+import self as self
+
 
 class WordGames:
     def __init__(self):
@@ -11,6 +13,7 @@ class WordGames:
 
 
 class WordDupli(WordGames):\
+
     def word_play(self):
         print("User input doubled: ")
         dupli = self.mywords + ' ' + self.mywords
