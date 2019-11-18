@@ -49,8 +49,19 @@
 
 # This is because A is immutable
 # B will not be reassigned to [1,1] because lists are not mutable as a whole but their contents are mutable individually
-
-some_guy="Fred"
-some_guy="George"
-
-print(some_guy)
+#
+# some_guy="Fred"
+# some_guy="George"
+#
+# # print(some_guy)
+# first_names = []
+# first_names.append(some_guy)
+#
+# # print(some_guy is first_names[0])
+# # They both point to the same memory location because they are the names bound to the object George
+#
+# print("before Assignemnt: ", first_names)
+# another_list_of_names = first_names
+# another_list_of_names.append("Fred")
+# print(first_names, another_list_of_names)
+# this is becayse another_list... is assigned to the same object as first_names, so when you append one the other will change too
